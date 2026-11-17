@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>XTX Video</title>
+<style>
+:root{--bg:#08090d;--card:#151720;--line:#30323d;--red:#e21d2b;--text:#fff;--muted:#aaa}*{box-sizing:border-box}body{margin:0;background:#050609;color:var(--text);font-family:Tahoma,Arial}.app{max-width:480px;min-height:100dvh;margin:auto;background:var(--bg);padding-bottom:75px}header{height:58px;background:#10121a;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 15px;position:sticky;top:0;z-index:3}.brand{font-weight:bold;font-size:18px}.brand b{color:var(--red)}main{padding:14px}.hidden{display:none!important}h2{font-size:20px;margin:8px 0 15px}.panel{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;margin-bottom:13px}.field{margin:10px 0}.field label{display:block;font-size:13px;margin-bottom:6px;color:#ddd}input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #373945;background:#090b11;color:#fff;outline:none}textarea{min-height:75px}.btn{background:var(--red);color:#fff;border:0;border-radius:11px;padding:12px;font-weight:bold;cursor:pointer}.btn.secondary{background:#292c36}.btn.danger{background:#82121d}.full{width:100%}.note{font-size:12px;color:#c9aeb1;line-height:1.7}.hero{height:165px;border-radius:17px;background:linear-gradient(130deg,#650e18,#11131b);overflow:hidden;margin-bottom:17px;display:grid;place-items:center;text-align:center;color:#f2cbd0}.hero img{width:100%;height:100%;object-fit:cover}.head{display:flex;align-items:center;justify-content:space-between;margin:17px 2px 10px}.head h3{margin:0;font-size:17px}.plus{width:35px;height:35px;border:0;border-radius:11px;background:var(--red);color:white;font-size:24px}.channels,.cards{display:flex;gap:13px;overflow-x:auto;padding:3px 2px 12px;scrollbar-width:none}.channel{flex:0 0 80px;text-align:center;font-size:12px}.circle{width:70px;height:70px;margin:auto auto 6px;border-radius:50%;border:2px solid #8b1822;background:#242630;overflow:hidden;display:grid;place-items:center}.circle img,.cover img{width:100%;height:100%;object-fit:cover}.folder{flex:0 0 125px;text-align:center;font-size:13px}.cover{height:140px;border-radius:13px;background:linear-gradient(140deg,#481019,#171923);border:1px solid #42252b;display:grid;place-items:center;overflow:hidden;font-size:30px}.folder b{display:block;margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.empty{padding:18px;background:var(--card);border:1px dashed #424550;border-radius:12px;color:var(--muted);font-size:13px;text-align:center;min-width:100%}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:13px}.stat{background:var(--card);border:1px solid var(--line);padding:13px;border-radius:13px}.stat b{display:block;font-size:23px}.stat small{color:var(--muted)}.search{margin-bottom:12px}.fab{position:fixed;bottom:87px;left:max(17px,calc((100vw - 480px)/2 + 17px));width:54px;height:54px;border-radius:17px;background:var(--red);color:#fff;font-size:30px;border:0;z-index:5}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:69px;background:#10121a;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-around;z-index:4}.nav button{flex:1;background:none;color:#aaa;font-size:11px}.nav button span{display:block;font-size:20px;margin-bottom:3px}.nav button.active{color:white}.nav button.active span{color:var(--red)}.navpic{width:49px;height:49px;border-radius:50%;border:2px solid #57131b;background:#20222b;display:grid;place-items:center;overflow:hidden}.navpic img{width:100%;height:100%;object-fit:cover}.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.row:last-child{border:0}.row .grow{flex:1;min-width:0}.row small{display:block;color:var(--muted)}.row button{background:#292c36;color:white;border:0;border-radius:8px;padding:8px}.modalbg{position:fixed;inset:0;background:#000b;z-index:10;display:flex;align-items:flex-end;justify-content:center;padding:10px}.modal{width:min(480px,100%);max-height:88dvh;overflow:auto;background:#171923;border:1px solid #41434d;border-radius:18px;padding:16px}.modal h3{margin:0 0 12px}.file{display:block;text-align:center;padding:12px;background:#292c36;border:1px dashed #666;border-radius:10px;font-size:13px}.file input{display:none}.video{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-bottom:12px}.video>img{width:100%;height:155px;object-fit:cover}.video .inside{padding:12px}.video p{font-size:12px;color:var(--muted)}.actions{display:flex;gap:7px}.actions button{flex:1}.player{width:100%;aspect-ratio:16/9;background:#000}.player video,.player iframe{width:100%;height:100%;border:0}
+.source-box{border:1px solid #383b48;background:linear-gradient(145deg,#191c27,#10121a);border-radius:14px;padding:12px;margin:12px 0}.source-box.youtube{border-right:4px solid #e21d2b}.source-box.telegram{border-right:4px solid #2787d9}.source-title{display:flex;align-items:center;gap:8px;font-weight:bold;margin-bottom:8px}.source-title .source-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#292d38}.source-box p{font-size:11px;color:#aaa;line-height:1.6;margin:7px 0 0}.source-box .btn{margin-top:8px}
+
+/* Premium media-card and navigation refinements */
+.nav{direction:rtl;justify-content:space-between;padding:0 7px;gap:2px}
+.nav button{min-width:0;padding:5px 0;border:0;cursor:pointer}
+.nav button.active{font-weight:bold;color:#fff}
+.nav button.active span{filter:drop-shadow(0 0 7px #e21d2b)}
+.navpic{flex:0 0 48px;box-shadow:0 0 0 4px #171923,0 0 0 5px #8f1824;cursor:default}
+.video{position:relative;border-radius:17px;background:#11131b;border:1px solid #343640;box-shadow:0 8px 22px #0005}
+.video-thumb{height:auto;aspect-ratio:16/9;max-height:165px;position:relative;overflow:hidden;background:linear-gradient(135deg,#351018,#171923)}
+.video-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.video-thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0005,transparent 35%,#0004)}
+.video-play{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;border:1px solid #ffffff90;background:linear-gradient(145deg,#f02b3bdd,#870d1ddd);color:#fff;font-size:25px;display:grid;place-items:center;backdrop-filter:blur(6px);box-shadow:0 0 0 7px #ffffff18,0 8px 24px #0009;pointer-events:none}
+.video-meta{position:absolute;z-index:2;top:12px;right:12px;left:12px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.video-chip{background:#10131ac9;color:#fff;padding:6px 10px;border-radius:10px;font-size:11px;backdrop-filter:blur(5px)}
+.video .inside{padding:13px 14px 14px}
+.video .inside>b{font-size:15px;line-height:1.6}
+.video p{line-height:1.7;margin:6px 0 12px}
+.folder{flex:0 0 145px;position:relative;cursor:pointer;width:145px}
+#browseItems{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;align-items:start}
+#browseItems .folder{width:100%;min-width:0;flex:none}
+#browseItems .cover{width:100%;height:auto;aspect-ratio:2/3;min-height:0;border-radius:13px}
+#browseItems .video{grid-column:1/-1}
+
+.folder .cover{transition:transform .18s ease,border-color .18s ease}
+.folder:active .cover{transform:scale(.97)}
+.folder.internal-folder .cover{border:2px solid #b51e2b;background:linear-gradient(145deg,#351017,#171923)}
+.folder.external-folder .cover{border:2px solid #5b6a89;background:linear-gradient(145deg,#17243c,#111923)}
+.folder-kind{position:absolute;top:9px;right:9px;z-index:2;padding:5px 8px;border-radius:8px;background:#080a10d9;color:#fff;font-size:10px}
+.folder-symbol{position:absolute;inset:0;display:grid;place-items:center;font-size:42px;color:#ffffffb8}
+.folder.external-folder .folder-symbol{color:#a9c6ff}
+.folder.internal-folder .folder-symbol{color:#ffb5bc}
+
+.cover{height:185px;aspect-ratio:2/3;border-radius:17px;position:relative;box-shadow:0 8px 18px #0005;border:1px solid #ffffff20}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:340px){#browseItems{gap:7px}#browseItems .folder b{font-size:11px}}
+
+.folder b{font-size:13px;padding:0 4px}
+.channel .circle{box-shadow:0 4px 13px #0006}
+.btn,.plus{transition:transform .15s ease,filter .15s ease}
+.btn:active,.plus:active{transform:scale(.97);filter:brightness(1.15)}
+.player{border-radius:13px;overflow:hidden}
+.player video{object-fit:contain;background:#000}
+@media(min-width:600px){.app{box-shadow:0 0 50px #0009}.video-thumb{max-height:190px}}
+
+.header-back{padding:8px 11px;font-size:12px}.modal-top{display:flex;justify-content:flex-start;margin:-5px 0 8px}.modal-close{width:34px;height:34px;border:0;border-radius:10px;background:#292c36;color:#fff;font-size:19px;cursor:pointer}.modal .player{width:100%;aspect-ratio:16/9;background:#000;border-radius:13px;overflow:hidden;margin:10px 0}.modal .player video,.modal .player iframe{width:100%;height:100%;border:0;object-fit:contain;background:#000}.modal .player iframe{object-fit:initial}.player-message{padding:18px;text-align:center;color:#ddd;font-size:13px;line-height:1.8}.player-message .btn{display:block;text-decoration:none;margin-top:12px}.modal .btn{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+/* Premium red-black video controls */
+.video-toolbar{position:relative;display:flex;align-items:center;gap:10px;margin-top:14px;padding:8px;border:1px solid #64202a;border-radius:16px;background:linear-gradient(135deg,#1b1016,#0b0d13 65%);box-shadow:inset 0 1px #ffffff0b,0 8px 22px #0007}
+.watch-btn{min-height:49px;border:1px solid #ff667333;border-radius:12px;background:linear-gradient(115deg,#ff3347 0%,#d51029 48%,#780b1a 100%);box-shadow:0 5px 18px #e21d2b40,inset 0 1px #ffffff35;font-size:14px;letter-spacing:.2px}
+.watch-btn span{width:29px;height:29px;background:#ffffff27;border:1px solid #ffffff35;box-shadow:0 2px 7px #0004}
+.video-more{width:48px;height:48px;border:1px solid #ffffff20;border-radius:12px;background:linear-gradient(145deg,#303442,#171a23);box-shadow:inset 0 1px #ffffff12;color:#fff;font-size:23px}
+.video-toolbar:before{content:"";position:absolute;right:12px;top:-1px;width:54px;height:2px;background:#ff4354;box-shadow:0 0 10px #ff243d}
+.player-heading{padding:5px 0 12px}
+.player-heading span{font-size:14px;color:#f5f5f7}
+.player-close{background:linear-gradient(145deg,#e9273b,#7c0d1b);border:1px solid #ff849055;box-shadow:0 4px 14px #d9152c44}
+
+.video-toolbar{display:flex;align-items:center;gap:9px;margin-top:13px;padding:7px;background:#0b0d13;border:1px solid #292d39;border-radius:14px}
+.watch-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;min-height:43px;border:0;border-radius:10px;background:linear-gradient(110deg,#f02b3b,#a90f20);color:#fff;font-weight:700;font-size:13px;cursor:pointer;box-shadow:0 5px 14px #b3142438}
+.watch-btn span{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:#ffffff25}
+.video-more{width:43px;height:43px;border:1px solid #373b48;border-radius:10px;background:#20232e;color:#fff;font-size:22px;cursor:pointer}
+.player-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff;font-weight:700;padding:4px 0 12px}
+.player-heading span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player-close{flex:0 0 40px;width:40px;height:40px;border:1px solid #ffffff30;border-radius:12px;background:#252936;color:#fff;font-size:27px;cursor:pointer}
+#modalbg:has(.player-stage){padding:0;align-items:center}.modal:has(.player-stage){width:100%;max-width:none;height:100dvh;max-height:100dvh;border:0;border-radius:0;padding:12px;background:#050609;display:flex;flex-direction:column;justify-content:center}
+.modal:has(.player-stage) .modal-top{display:none}
+.player-stage{width:100%;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.modal .player{width:100%;aspect-ratio:16/9;max-height:100%;margin:0;border-radius:12px;overflow:hidden;background:#000}
+.modal .player video,.modal .player iframe{width:100%;height:100%;object-fit:contain;background:#000}
+#modal:fullscreen{width:100vw;height:100vh;max-height:100vh;border:0;border-radius:0;padding:12px;background:#050609}.modal:fullscreen .player-stage{width:100%;height:100%;flex:1}
+.player-stage:fullscreen{width:100vw;height:100vh;background:#000;padding:0;display:flex;align-items:center;justify-content:center}.player-stage:fullscreen .player{width:100vw;height:100vh;max-height:none;aspect-ratio:auto;border-radius:0}.player-stage:fullscreen .player iframe,.player-stage:fullscreen .player video{width:100%;height:100%;object-fit:contain}
+.player-stage:fullscreen .player{width:100vw;height:100vh;max-height:none;aspect-ratio:auto;border-radius:0}
+.player-stage:fullscreen .player video,.player-stage:fullscreen .player iframe{width:100%;height:100%;object-fit:contain}
+.player-stage:fullscreen .player video{object-fit:contain}
+@media(orientation:landscape){.modal:has(.player-stage){width:100vw;height:100dvh}.modal:has(.player-stage) .player-stage{width:100%;height:calc(100dvh - 48px)}.modal:has(.player-stage) .player{width:100%;height:100%;aspect-ratio:auto}.modal:has(.player-stage) .player video,.modal:has(.player-stage) .player iframe{width:100%;height:100%}}
+@media(orientation:landscape){.modal:has(.player-stage){padding:5px}.player-heading{padding:2px 0 5px}.modal .player{height:calc(100dvh - 58px);aspect-ratio:auto}}
+
+
+.folder-admin-menu{position:absolute;left:8px;top:auto;bottom:8px;z-index:3;width:31px;height:31px;border:1px solid #ffffff38;border-radius:9px;background:#080a10d9;color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.folder{position:relative}
+
+
+.video{cursor:pointer}.video-thumb{cursor:pointer}.video-admin-menu{position:absolute;z-index:4;top:auto;bottom:10px;left:10px;width:36px;height:36px;border:1px solid #ffffff44;border-radius:11px;background:#090b12e8;color:#fff;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(8px)}
+.player-stage{position:relative;flex-direction:column;gap:10px}.cinema-controls{width:100%;display:flex;align-items:center;gap:9px;padding:11px 12px;border:1px solid #69202b;border-radius:16px;background:linear-gradient(110deg,#241018,#0d1018 65%);box-shadow:0 8px 24px #0008,inset 0 1px #ffffff12}.cinema-controls button{flex:0 0 39px;width:39px;height:39px;border:1px solid #ff526244;border-radius:12px;background:linear-gradient(145deg,#f02b3b,#8d1020);color:#fff;font-size:18px;font-weight:bold}.cinema-controls span{font-size:11px;color:#f5dfe2;font-variant-numeric:tabular-nums}.cinema-seek{flex:1;min-width:30px;height:5px;padding:0;accent-color:#f02b3b;cursor:pointer}.player-stage:fullscreen .cinema-controls{position:absolute;bottom:16px;left:12px;right:12px;width:auto;background:#11131be8;backdrop-filter:blur(12px)}
+
+
+.codes-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}.secret-code{background:linear-gradient(135deg,#241018,#151720);border:1px solid #8b2634;border-radius:16px;padding:18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 22px #0005}.secret-code small{color:#f3aab2}.secret-code strong{font-size:20px;letter-spacing:1px;font-variant-numeric:tabular-nums;direction:ltr}.codes-actions{display:flex;gap:10px;margin-top:16px}.codes-actions .btn{flex:1}
+
+/* Restore full-width video cards and show the complete image clearly */
+.video{width:100%;margin:0 0 12px;}
+.video-thumb{width:100%;height:auto;aspect-ratio:16/9;max-height:none;}
+.video-thumb img{width:100%;height:100%;object-fit:contain;background:#050609;}
+
+.description-open{display:inline-block;margin-top:8px;padding:7px 13px;border:1px solid #8d2632;border-radius:9px;background:#211116;color:#fff;font-size:12px;cursor:pointer}
+.description-content{background:#0b0d13;border:1px solid #343640;border-radius:12px;padding:14px;line-height:1.9;overflow-wrap:anywhere;margin:12px 0 16px;color:#eee}
+.description-content a{color:#ff6874;text-decoration:underline}
+</style></head>
+<body><div class="app">
+<header><button id="headerBack" class="btn secondary header-back hidden" onclick="back()" aria-label="رجوع">← رجوع</button><div class="brand"><b>●</b> XTX Video</div><button id="headerSettings" class="btn secondary" onclick="go('settings')">⚙</button></header>
+<main>
+<section id="login">
+<h2>مرحباً بك</h2><div class="panel"><h3>تسجيل الدخول</h3>
+<div class="field"><label>الاسم</label><input id="name" autocomplete="username" placeholder="اكتب اسمك"></div>
+<div class="field"><label>الرقم السري</label><input id="pass" type="password" autocomplete="current-password" placeholder="اكتب الرقم السري"></div>
+<div class="field"><label>رقم الهاتف (اختياري)</label><input id="phone" type="tel" autocomplete="tel" placeholder="اكتب رقم هاتفك إن رغبت"></div>
+<div class="field"><label>تاريخ الميلاد (اختياري)</label><input id="birth" type="date" autocomplete="bday"></div>
+<button class="btn full" onclick="sharedLogin()">دخول</button><p class="note">الاسم والرقم السري مطلوبان، ورقم الهاتف وتاريخ الميلاد اختياريان.</p></div>
+</section>
+<section id="codes" class="hidden">
+<h2>تأكيد هوية المتحكم</h2>
+<p class="note">اكتب الأرقام السرية الأربعة بالترتيب لتأكيد دخولك كمتحكم.</p>
+<div class="codes-grid">
+<div class="field"><label>المستطيل الأول</label><input id="adminCode1" type="password" inputmode="numeric" autocomplete="off" placeholder="اكتب الرقم السري الأول"></div>
+<div class="field"><label>المستطيل الثاني</label><input id="adminCode2" type="password" inputmode="numeric" autocomplete="off" placeholder="اكتب الرقم السري الثاني"></div>
+<div class="field"><label>المستطيل الثالث</label><input id="adminCode3" type="password" inputmode="numeric" autocomplete="off" placeholder="اكتب الرقم السري الثالث"></div>
+<div class="field"><label>المستطيل الرابع</label><input id="adminCode4" type="password" inputmode="numeric" autocomplete="off" placeholder="اكتب الرقم السري الرابع"></div>
+</div>
+<div class="codes-actions"><button class="btn full" onclick="verifyAdminCodes()">تأكيد ودخول التطبيق</button><button class="btn secondary" onclick="logout()">خروج</button></div>
+</section>
+<section id="home" class="hidden">
+<div id="stats" class="stats hidden"><div class="stat"><b id="count">0</b><small>عدد العملاء</small></div><div class="stat"><b id="active">0</b><small>العملاء النشطون</small></div></div>
+<div class="hero" id="hero">مساحة الصورة الرئيسية<br><small>يضيف المتحكم صورة من ملفات الهاتف</small></div>
+<div class="head"><h3>الأقسام الرئيسية</h3><button class="plus admin hidden" onclick="addCategory()">+</button></div><div class="channels" id="channels"></div>
+<div class="head"><h3>أنمي</h3><button class="plus admin hidden" onclick="addFolder('anime','')">+</button></div><div class="cards" id="animeHome"></div>
+<div class="head"><h3>مسلسلات</h3><button class="plus admin hidden" onclick="addFolder('series','')">+</button></div><div class="cards" id="seriesHome"></div>
+</section>
+<section id="browse" class="hidden"><div id="crumb" class="note"></div><h2 id="browseTitle"></h2><input id="search" class="search" placeholder="بحث..." oninput="renderBrowse()"><div id="browseItems"></div></section>
+<section id="settings" class="hidden"><h2>الإعدادات</h2><div id="customerSettings" class="hidden"><div class="panel"><h3>بياناتي</h3><div id="myData"></div></div><button class="btn danger full" onclick="logout()">تسجيل الخروج</button></div>
+<div id="adminSettings" class="hidden"><div class="panel"><h3>العملاء</h3><div class="stats"><div class="stat"><b id="cc">0</b><small>كل العملاء</small></div><div class="stat"><b id="ac">0</b><small>النشطون</small></div></div><input id="clientSearch" class="search" placeholder="بحث باسم العميل" oninput="renderClients()"><div id="clients"></div></div>
+<div class="panel"><h3>صورة الصفحة الرئيسية</h3><label class="file">اختيار صورة من الملفات<input type="file" accept="image/*" onchange="heroFile(this.files[0])"></label></div>
+<div class="panel"><h3>النسخ الاحتياطي</h3><button class="btn full" onclick="backup()">تصدير نسخة احتياطية</button><br><br><label class="file">استعادة نسخة<input type="file" accept=".json,application/json" onchange="restore(this.files[0])"></label></div>
+<div class="panel"><h3>إدارة التطبيق</h3><button class="btn danger full" onclick="clearStart()">مسح بيانات التطبيق</button></div><br><button class="btn secondary full" onclick="logout()">تسجيل الخروج</button></div></section>
+</main><button id="fab" class="fab hidden" onclick="fab()">+</button>
+<nav id="nav" class="nav hidden"><button class="active" onclick="go('home')"><span>⌂</span>الرئيسية</button><button onclick="root('anime')"><span>🎌</span>أنمي</button><div class="navpic" id="navpic">＋</div><button onclick="root('series')"><span>🎬</span>مسلسلات</button><button onclick="go('settings')"><span>⚙</span>الإعدادات</button></nav>
+<div id="modalbg" class="modalbg hidden" onclick="if(event.target===this)close()"><div class="modal" id="modal"></div></div>
+</div>
+<script>
+const KEY='media_app_redblack_v1',SESSION='media_session_v1';
+// قيم محمية (مش النص الأصلي) — مقارنة بالـ hash فقط
+const H_ADMIN='24792824',H_ADMINPW='2b5d6',H_CODES=['cbe8fbad','9568c8cb','2b71ef9c','904ba87d'];
+function _h(s){let h=5381;for(let i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(i);h=h&h;}return (h>>>0).toString(16);}
+let db={users:[],categories:[],anime:[],series:[],hero:''},role='customer',me=null,rootType='anime',folderId=null;
+const $=id=>document.getElementById(id);const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+try{db={...db,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true}catch(e){alert('مساحة التخزين على الجهاز غير كافية لحفظ هذه البيانات. جرّب فيديو أصغر أو استخدم رابط فيديو بدلاً من رفع ملف كبير.');return false}}
+
+
+let currentScreen='login';
+function screen(id){
+ currentScreen=id;
+ ['login','codes','home','browse','settings'].forEach(x=>$(x).classList.toggle('hidden',x!==id));
+ $('nav').classList.toggle('hidden',!['home','browse','settings'].includes(id));
+ $('fab').classList.toggle('hidden',!(role==='admin'&&id==='browse'));
+ $('headerBack').classList.toggle('hidden',!['browse','settings'].includes(id));
+ $('headerSettings').classList.toggle('hidden',!['home','browse','settings'].includes(id));
+ render();
+}
+function go(id){if(id==='browse'){root(rootType);return;} if(id==='home'){folderId=null;} setNavActive(id);screen(id)}
+function back(){
+ if(!$('modalbg').classList.contains('hidden')){close();return;}
+ if(currentScreen==='settings'){go('home');return;}
+ if(currentScreen==='browse'){
+  if(folderId){const f=db[rootType].find(x=>x.id===folderId);folderId=f?.parent||null;$('search').value='';renderBrowse();return;}
+  go('home');return;
+ }
+ go('home');
+}
+function setNavActive(id){
+ document.querySelectorAll('#nav button').forEach(b=>b.classList.remove('active'));
+ const map={home:0,anime:1,series:2,settings:3};
+ let index=id==='browse'?(rootType==='anime'?1:2):map[id];
+ const buttons=document.querySelectorAll('#nav button');
+ if(index!==undefined&&buttons[index])buttons[index].classList.add('active');
+}
+function sharedLogin(){let n=$('name').value.trim(),p=$('pass').value.trim();if(!n||!p)return alert('اكتب الاسم والرقم السري');if(_h(n)===H_ADMIN&&_h(p)===H_ADMINPW){role='admin';me={name:'المتحكم'};localStorage.setItem(SESSION,JSON.stringify({role:'admin',verified:false}));screen('codes');return;}customerLogin()}
+function verifyAdminCodes(){const entered=[1,2,3,4].map(i=>$('adminCode'+i).value.trim());if(entered.some((v,i)=>_h(v)!==H_CODES[i])){alert('الأرقام السرية غير صحيحة أو ليست بالترتيب. حاول مرة أخرى.');return;}localStorage.setItem(SESSION,JSON.stringify({role:'admin',verified:true}));screen('home')}
+function customerLogin(){let n=$('name').value.trim(),p=$('pass').value.trim(),phone=$('phone').value.trim(),birth=$('birth').value; if(!n||!p)return alert('اكتب الاسم والرقم السري');let u=db.users.find(x=>x.pass===p);if(u&&u.name!==n)return alert('الرقم السري مستخدم بالفعل');if(u?.banned)return alert('هذا الحساب محظور');if(!u){u={id:Date.now(),name:n,pass:p,birth:'',phone:'',banned:false};db.users.push(u)}if(phone)u.phone=phone;if(birth)u.birth=birth;save();role='customer';me=u;localStorage.setItem(SESSION,JSON.stringify({role:'customer',id:u.id}));screen('home')}
+function logout(){localStorage.removeItem(SESSION);me=null;role='customer';screen('login')}
+function render(){if($('home').classList.contains('hidden')===false)home();if($('browse').classList.contains('hidden')===false)renderBrowse();if($('settings').classList.contains('hidden')===false)settings()}
+function home(){ $('stats').classList.toggle('hidden',role!=='admin');document.querySelectorAll('.admin').forEach(x=>x.classList.toggle('hidden',role!=='admin'));$('count').textContent=db.users.length;$('active').textContent=db.users.filter(x=>!x.banned).length;
+$('hero').innerHTML=db.hero?`<img src="${db.hero}">`:'مساحة الصورة الرئيسية<br><small>يضيف المتحكم صورة من الملفات</small>';
+$('channels').innerHTML=db.categories.length?db.categories.map(c=>`<div class="channel" onclick="root('${c.type}')"><div class="circle">${c.image?`<img src="${c.image}">`:'◉'}</div>${esc(c.name)}</div>`).join(''):'<div class="empty">أضف أقسامك الرئيسية</div>';
+['anime','series'].forEach(t=>$(t+'Home').innerHTML=db[t].filter(f=>!f.parent).map(f=>card(f,t)).join('')||'<div class="empty">لا توجد مجلدات بعد</div>')}
+function folderClick(t,id){openFolder(t,id)}
+function card(f,t){
+ const kind=f.kind==='external'?'external':'internal';
+ const label=kind==='external'?'خارجي':'داخلي';
+ return `<div class="folder ${kind}-folder" onclick="folderClick('${t}','${f.id}')">
+ <div class="cover">${f.image?`<img src="${f.image}" alt="">`:`<span class="folder-symbol">${kind==='external'?'↗':'▣'}</span>`}<span class="folder-kind">${label}</span>${role==='admin'?`<button class="folder-admin-menu" onclick="event.stopPropagation();folderMenu('${t}','${f.id}')" aria-label="إدارة المجلد">⋮</button>`:''}</div><b>${esc(f.name)}</b></div>`;
+}
+function root(t){rootType=t;folderId=null;setNavActive(t);$('search').value='';screen('browse')}
+function openFolder(t,id){rootType=t;folderId=id;$('search').value='';setNavActive(t);screen('browse')}
+function renderBrowse(){let arr=db[rootType],f=folderId?arr.find(x=>x.id===folderId):null,q=$('search').value.toLowerCase();$('browseTitle').textContent=f?f.name:(rootType==='anime'?'أنمي':'مسلسلات');$('crumb').textContent='الرئيسية  ‹  '+(rootType==='anime'?'أنمي':'مسلسلات')+(f?'  ‹  '+f.name:'');let html=arr.filter(x=>(f?x.parent===f.id:!x.parent)&&x.name.toLowerCase().includes(q)).map(x=>card(x,rootType)).join('');if(f&&f.kind==='internal')html+=[...(f.videos||[])].sort((a,b)=>Number(b.id)-Number(a.id)).filter(v=>v.title.toLowerCase().includes(q)).map(v=>videoCard(v,f.id)).join('');$('browseItems').innerHTML=html||'<div class="empty">لا يوجد محتوى هنا</div>';
+ 
+}
+function folderMenu(t,id){
+ if(role!=='admin')return;
+ const f=db[t].find(x=>x.id===id);if(!f)return;
+ modal(`<h3>إدارة المجلد</h3><button class="btn full" onclick="editFolder('${t}','${id}')">تعديل الاسم والصورة</button><br><br><button class="btn danger full" onclick="deleteFolder('${t}','${id}')">حذف المجلد</button><br><br><button class="btn secondary full" onclick="close()">إغلاق</button>`);
+}
+function editFolder(t,id){
+ const f=db[t].find(x=>x.id===id);if(!f)return;
+ modal(`<h3>تعديل المجلد</h3><div class="field"><label>اسم المجلد</label><input id="editFolderName" value="${esc(f.name)}"></div><div class="field"><label>تغيير الصورة (اختياري)</label><label class="file">اختيار صورة<input id="editFolderImage" type="file" accept="image/*"></label></div><button class="btn full" onclick="saveFolderEdit('${t}','${id}')">حفظ التعديلات</button>`);
+}
+function saveFolderEdit(t,id){
+ const f=db[t].find(x=>x.id===id);if(!f)return;
+ const n=$('editFolderName').value.trim();if(!n)return alert('اكتب الاسم');
+ f.name=n;readFile($('editFolderImage').files[0],img=>{if(img)f.image=img;save();close();render()});
+}
+function deleteFolder(t,id){
+ if(!confirm('هل تريد حذف هذا المجلد ومحتوياته؟'))return;
+ const removeTree=target=>{
+  db[t].filter(x=>x.parent===target).forEach(child=>removeTree(child.id));
+  db[t]=db[t].filter(x=>x.id!==target);
+ };
+ removeTree(id);save();close();folderId=null;render();
+}
+
+function fab(){
+ if(role!=='admin')return;
+ if(!folderId){addFolder(rootType,'');return;}
+ let f=db[rootType].find(x=>x.id===folderId);if(!f)return;
+ if(f.kind==='internal')addVideo(f.id);else addFolder(rootType,f.id);
+}
+function modal(s){$('modal').innerHTML=`<div class="modal-top"><button class="modal-close" onclick="close()" aria-label="إغلاق">×</button></div>`+s;$('modalbg').classList.remove('hidden')}function close(){const media=$('modal').querySelectorAll('video,audio,iframe');media.forEach(el=>{if(el.tagName==='IFRAME'){el.src='about:blank'}else{try{el.pause();el.removeAttribute('src');el.load()}catch(e){}}});$('modalbg').classList.add('hidden')}
+function readFile(file,cb){if(!file)return cb('');let r=new FileReader();r.onload=()=>cb(r.result);r.readAsDataURL(file)}
+function addCategory(){modal(`<h3>إضافة قسم رئيسي</h3><div class="field"><label>صورة دائرية (1) من الملفات</label><label class="file">اختيار صورة<input id="ci" type="file" accept="image/*"></label></div><div class="field"><label>اسم القسم</label><input id="cn"></div><div class="field"><label>يفتح على</label><select id="ct"><option value="anime">أنمي</option><option value="series">مسلسلات</option></select></div><button class="btn full" onclick="saveCategory()">تأكيد</button>`)}
+function saveCategory(){let n=$('cn').value.trim();if(!n)return alert('اكتب الاسم');readFile($('ci').files[0],img=>{db.categories.push({name:n,image:img,type:$('ct').value});save();close();home()})}
+function addFolder(t,parent){
+ modal(`<h3>إضافة مجلد جديد</h3>
+ <div class="field"><label>نوع المجلد</label><select id="fk"><option value="internal">مجلد داخلي</option><option value="external">مجلد خارجي</option></select></div>
+ <div class="field"><label>صورة غلاف المجلد (مطلوبة)</label><label class="file">📁 اختر صورة الغلاف من الهاتف<input id="fi" type="file" accept="image/*" onchange="previewFolderImage(this)"></label><div id="folderPreview" class="cover" style="display:none;margin-top:10px;max-width:190px"></div></div>
+ <div class="field"><label>اسم المجلد</label><input id="fn" placeholder="اكتب اسم المجلد"></div>
+ <button class="btn full" onclick="saveFolder('${t}','${parent}')">إنشاء المجلد</button>`);
+}
+function previewFolderImage(input){
+ const file=input.files?.[0];if(!file)return;
+ const box=$('folderPreview');box.style.display='block';box.innerHTML='';
+ const img=document.createElement('img');img.src=URL.createObjectURL(file);box.appendChild(img);
+}
+function saveFolder(t,parent){
+ let n=$('fn').value.trim(),file=$('fi').files[0];
+ if(!n)return alert('اكتب اسم المجلد');
+ if(!file)return alert('اختار صورة غلاف للمجلد مثل الصورة التي أرسلتها');
+ if(!file.type.startsWith('image/'))return alert('الملف المختار ليس صورة');
+ readFile(file,img=>{
+  db[t].push({id:String(Date.now()),name:n,image:img,parent:parent||null,kind:$('fk').value,videos:[]});
+  if(!save())return;
+  close();render();
+ });
+}
+function addVideo(id){modal(`<h3>إضافة فيديو</h3>
+ <div class="field"><label>ملف فيديو من الهاتف (اختياري)</label><label class="file">اختيار فيديو<input id="vf" type="file" accept="video/*"></label></div>
+ <div class="source-box youtube"><div class="source-title"><span class="source-icon">▶</span> YouTube</div><input id="ytUrl" placeholder="الصق رابط فيديو YouTube هنا"><button class="btn full" onclick="selectVideoSource('youtube')">استخدام رابط YouTube</button><p>الصق رابط يوتيوب وسيعمل داخل مشغّل التطبيق إذا كان الفيديو يسمح بالتضمين. تنزيل فيديوهات يوتيوب كملفات غير متاح من هذا الرابط.</p></div>
+ <div class="source-box telegram"><div class="source-title"><span class="source-icon">✈</span> Telegram</div><input id="tgUrl" placeholder="الصق رابط منشور Telegram هنا"><button class="btn full" onclick="selectVideoSource('telegram')">استخدام رابط Telegram</button><p>سيتم تفعيل جلب الفيديو وحفظه داخل التطبيق بعد إعداد السيرفر.</p></div>
+ <div class="field"><label>رابط مباشر لملف فيديو (اختياري)</label><input id="vu" placeholder="رابط MP4 أو WebM مباشر"></div>
+ <div class="field"><label>اسم الفيديو</label><input id="vn" placeholder="اسم الفيديو"></div><div class="field"><label>الوصف</label><textarea id="vd"></textarea></div>
+ <div class="field"><label>صورة الفيديو من الملفات</label><label class="file">اختيار صورة<input id="vi" type="file" accept="image/*"></label></div>
+ <button class="btn full" onclick="saveVideo('${id}')">حفظ وإضافة الفيديو</button>
+ <p class="note">مربعا YouTube وTelegram جاهزان في واجهة التطبيق، وسيتم توصيل التحميل الفعلي بالسيرفر بعد الانتهاء من التطبيق. حالياً يمكن إضافة ملف من الهاتف أو رابط فيديو مباشر يدعم الوصول.</p>`)}
+function selectVideoSource(source){
+ const value=source==='youtube'?$('ytUrl').value.trim():$('tgUrl').value.trim();
+ if(!value)return alert('الصق الرابط أولاً');
+ if(!/^https?:\/\//i.test(value))return alert('الرابط غير صحيح. ابدأ بـ https://');
+ $('vu').value=value;
+ alert(source==='youtube'?'تم اختيار رابط YouTube. سيعمل داخل المشغّل إذا كان التضمين مسموحاً.':'تم اختيار رابط Telegram.');
+}
+async function saveVideo(id){
+ let title=$('vn').value.trim();
+ let file=$('vf').files[0];
+ let ytUrl=$('ytUrl').value.trim();
+ let tgUrl=$('tgUrl').value.trim();
+ let directUrl=$('vu').value.trim();
+ let url=ytUrl||tgUrl||directUrl;
+ let source=ytUrl?'youtube':(tgUrl?'telegram':'direct');
+
+ if(!title)return alert('اكتب اسم الفيديو');
+ if(!file&&!url)return alert('اختر ملف فيديو من الهاتف أو الصق رابط الفيديو');
+ if(url&&!/^https?:\/\//i.test(url))return alert('الرابط غير صحيح. ابدأ الرابط بـ https:// أو http://');
+ if(ytUrl&&tgUrl)return alert('اختر رابطاً واحداً فقط: YouTube أو Telegram');
+
+ // حفظ صورة الفيديو المصغرة أولاً، ثم تجهيز ملف الفيديو أو الاحتفاظ بالرابط.
+ readFile($('vi').files[0],async img=>{
+  let blobData='';
+
+  // روابط المنصات تُحفظ كرابط حالياً، وسيتم تفعيل جلب ملفاتها عبر السيرفر لاحقاً.
+  // يمكن حفظ الرابط وتشغيل فيديو YouTube المضمّن إذا كان الرابط مدعوماً.
+  if(!file&&url&&source==='direct'){
+   try{
+    let response=await fetch(url);
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    let blob=await response.blob();
+    if(!blob.type.startsWith('video/'))throw new Error('Not a video');
+    blobData=await new Promise((resolve,reject)=>{
+     let reader=new FileReader();
+     reader.onload=()=>resolve(reader.result);
+     reader.onerror=()=>reject(new Error('تعذرت قراءة الملف'));
+     reader.readAsDataURL(blob);
+    });
+   }catch(e){
+    alert('تعذر حفظ الفيديو من الرابط المباشر بسبب قيود الوصول. سيتم حفظ الرابط فقط.');
+   }
+  }
+
+  let finish=finalBlob=>{
+   let f=db[rootType].find(x=>x.id===id);
+   if(!f)return alert('المجلد غير موجود');
+   f.videos=f.videos||[];
+   f.videos.unshift({
+    id:String(Date.now()),
+    title,
+    url:finalBlob?'':url,
+    source,
+    description:$('vd').value,
+    image:img,
+    blob:finalBlob||''
+   });
+   if(!save())return;
+   close();
+   renderBrowse();
+   if(finalBlob)alert('تم حفظ الفيديو داخل التطبيق بنجاح.');
+   else if(source==='youtube')alert('تم حفظ رابط YouTube. افتح الفيديو واضغط مشاهدة لتشغيله داخل التطبيق. التحميل كملف غير متاح من رابط يوتيوب العادي.');
+   else if(source==='telegram')alert('تم حفظ رابط Telegram. سيتم تفعيل جلب الفيديو وتشغيله داخل التطبيق بعد ربط السيرفر.');
+   else alert('تم حفظ رابط الفيديو.');
+  };
+
+  if(file)readFile(file,finish);
+  else finish(blobData);
+ });
+}
+function videoCard(v,fid){
+ const type='فيديو';
+ const image=v.image?`<img src="${v.image}" alt="">`:'';
+ return `<div class="video" onclick="play('${fid}','${v.id}')" role="button" tabindex="0" aria-label="تشغيل ${esc(v.title)}">
+  <div class="video-thumb">${image}
+   <span class="video-play" aria-hidden="true">▶</span>
+   <div class="video-meta"><span class="video-chip">اضغط للمشاهدة</span></div>
+   ${role==='admin'?`<button class="video-admin-menu" onclick="event.stopPropagation();videoMenu('${fid}','${v.id}')" aria-label="خيارات الفيديو">⋮</button>`:''}
+  </div>
+  <div class="inside"><b>${esc(v.title)}</b><button class="description-open" onclick="event.stopPropagation();showVideoDescription('${fid}','${v.id}')">الوصف</button></div>
+ </div>`;
+}
+
+function showVideoDescription(fid,vid){
+ const folder=db[rootType].find(x=>String(x.id)===String(fid));
+ const v=folder?.videos?.find(x=>String(x.id)===String(vid));
+ if(!v)return;
+ const raw=String(v.description||'').trim();
+ const safe=esc(raw).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">$1</a>').replace(/\n/g,'<br>');
+ modal(`<h3>الوصف</h3><div class="description-content">${safe||'لا يوجد وصف لهذا الفيديو.'}</div><button class="btn secondary full" onclick="close()">إغلاق</button>`);
+}
+
+function play(fid,vid){
+ const folder=db[rootType].find(x=>String(x.id)===String(fid));
+ const v=folder?.videos?.find(x=>String(x.id)===String(vid));
+ if(!v)return alert('الفيديو غير موجود');
+ const raw=String(v.url||'').trim();
+ let ytId='';
+ try{
+  const u=new URL(raw);
+  const host=u.hostname.toLowerCase().replace(/^www\./,'').replace(/^m\./,'');
+  if(host==='youtu.be')ytId=u.pathname.split('/').filter(Boolean)[0]||'';
+  else if(host==='youtube.com'||host==='youtube-nocookie.com'){
+   ytId=u.searchParams.get('v')||'';
+   if(!ytId){const parts=u.pathname.split('/').filter(Boolean);if(['embed','shorts','live','v'].includes(parts[0]))ytId=parts[1]||'';}
+  }
+ }catch(e){}
+ const yt=ytId&&/^[\w-]{6,}$/.test(ytId)?ytId:'';
+ const direct=raw&&(/\.(mp4|webm|ogg)(?:[?#].*)?$/i.test(raw)||raw.startsWith('blob:'));
+ let player='';
+ if(v.blob){player=`<video controls autoplay playsinline webkit-playsinline preload="metadata" src="${v.blob}"></video>`;}
+ else if(direct){player=`<video controls autoplay playsinline webkit-playsinline preload="metadata" src="${esc(raw)}"></video>`;}
+ else if(yt){player=`<iframe title="مشغل الفيديو" src="https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;}
+ else if(/(t\.me|telegram\.me)/i.test(raw)){
+  player=`<div class="player-message"><p>رابط Telegram محفوظ. تشغيل الفيديو داخل المشغل سيتفعّل بعد ربط السيرفر.</p><a class="btn full" href="${esc(raw)}" target="_blank" rel="noopener">فتح المنشور في Telegram</a></div>`;
+ }
+ else if(raw){player=`<div class="player-message"><p>هذا الرابط ليس رابط فيديو مباشرًا معروفًا.</p><a class="btn full" href="${esc(raw)}" target="_blank" rel="noopener">فتح الرابط</a></div>`;}
+ else {player='<div class="player-message">لا يوجد ملف فيديو أو رابط محفوظ.</div>';}
+ modal(`<div class="player-heading"><span></span><button class="player-close" onclick="closePlayer()" aria-label="إغلاق">×</button></div><div class="player-stage"><div class="player">${player}</div></div>`);
+ const stage=$('modal').querySelector('.player-stage');
+ const media=stage?.querySelector('video');
+ if(media){
+  media.removeAttribute('controls');
+  const controls=document.createElement('div');
+  controls.className='cinema-controls';
+  controls.innerHTML=`<button type="button" class="cinema-play" aria-label="تشغيل أو إيقاف">Ⅱ</button><span class="cinema-time">0:00</span><input class="cinema-seek" type="range" min="0" max="1000" value="0" aria-label="موضع الفيديو"><span class="cinema-duration">0:00</span><button type="button" class="cinema-full" aria-label="ملء الشاشة">⛶</button>`;
+  stage.appendChild(controls);
+  const $c=sel=>controls.querySelector(sel),fmt=t=>{if(!Number.isFinite(t))return '0:00';const m=Math.floor(t/60),sec=Math.floor(t%60);return m+':'+String(sec).padStart(2,'0')};
+  const sync=()=>{$c('.cinema-time').textContent=fmt(media.currentTime);$c('.cinema-duration').textContent=fmt(media.duration);$c('.cinema-seek').value=media.duration?Math.round(media.currentTime/media.duration*1000):0;$c('.cinema-play').textContent=media.paused?'▶':'Ⅱ'};
+  $c('.cinema-play').onclick=()=>{if(media.paused)media.play().catch(()=>{});else media.pause();sync()};
+  $c('.cinema-seek').oninput=e=>{if(media.duration)media.currentTime=media.duration*(Number(e.target.value)/1000)};
+  $c('.cinema-full').onclick=()=>{const target=stage;if(target.requestFullscreen)target.requestFullscreen().catch(()=>{});};
+  media.addEventListener('timeupdate',sync);media.addEventListener('loadedmetadata',sync);media.addEventListener('play',sync);media.addEventListener('pause',sync);sync();
+ }
+ // اطلب ملء الشاشة والوضع الأفقي عند تشغيل الفيديو. قفل الاتجاه يعمل في APK/WebView والمتصفحات الداعمة.
+ const lockLandscape=()=>{try{const so=window.screen&&window.screen.orientation;if(so&&so.lock)so.lock('landscape').catch(()=>{});}catch(e){}};
+ lockLandscape();
+ try{if(stage&&stage.requestFullscreen){stage.requestFullscreen().then(lockLandscape).catch(()=>{});}}catch(e){}
+}
+function closePlayer(){
+ try{if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}catch(e){}
+ try{window.screen.orientation?.unlock?.();}catch(e){}
+ close();
+}
+
+function videoMenu(fid,vid){modal(`<h3>خيارات الفيديو</h3><button class="btn full" onclick="editVideo('${fid}','${vid}')">تعديل بيانات الفيديو</button><br><br><button class="btn danger full" onclick="deleteVideo('${fid}','${vid}')">حذف الفيديو</button><br><br><button class="btn secondary full" onclick="close()">إغلاق</button>`)}
+function editVideo(fid,vid){
+ const folder=db[rootType].find(x=>x.id===fid),v=folder?.videos.find(x=>x.id===vid);if(!v)return;
+ modal(`<h3>تعديل الفيديو</h3>
+ <div class="field"><label>اسم الفيديو</label><input id="evTitle" value="${esc(v.title)}"></div>
+ <div class="field"><label>الرابط</label><input id="evUrl" value="${esc(v.url||'')}" placeholder="الصق رابط الفيديو"></div>
+ <div class="field"><label>الوصف</label><textarea id="evDesc">${esc(v.description||'')}</textarea></div>
+ <div class="field"><label>تغيير صورة الفيديو (اختياري)</label><label class="file">اختيار صورة<input id="evImage" type="file" accept="image/*"></label></div>
+ <button class="btn full" onclick="saveVideoEdit('${fid}','${vid}')">حفظ التعديلات</button>`);
+}
+function saveVideoEdit(fid,vid){
+ const folder=db[rootType].find(x=>x.id===fid),v=folder?.videos.find(x=>x.id===vid);if(!v)return;
+ const title=$('evTitle').value.trim();if(!title)return alert('اكتب اسم الفيديو');
+ v.title=title;v.url=$('evUrl').value.trim();v.description=$('evDesc').value;
+ readFile($('evImage').files[0],img=>{if(img)v.image=img;save();close();renderBrowse()});
+}
+function deleteVideo(fid,vid){if(!confirm('تأكيد حذف الفيديو؟'))return;let f=db[rootType].find(x=>x.id===fid);f.videos=f.videos.filter(v=>v.id!==vid);save();close();renderBrowse()}
+function settings(){setNavActive('settings');if(role==='admin'){$('adminSettings').classList.remove('hidden');$('customerSettings').classList.add('hidden');$('cc').textContent=db.users.length;$('ac').textContent=db.users.filter(u=>!u.banned).length;renderClients()}else{$('adminSettings').classList.add('hidden');$('customerSettings').classList.remove('hidden');$('myData').innerHTML=`الاسم: ${esc(me.name)}<br>الرقم السري: •••••••<br>تاريخ الميلاد: ${esc(me.birth||'غير مسجل')}<br>رقم الهاتف: ${esc(me.phone||'غير مسجل')}`}}
+function renderClients(){let q=($('clientSearch').value||'').toLowerCase();$('clients').innerHTML=db.users.filter(u=>u.name.toLowerCase().includes(q)).map(u=>`<div class="row"><div class="grow"><b>${esc(u.name)}</b><small>${u.banned?'محظور':'نشط'}</small></div><button onclick="clientInfo(${u.id})">عرض</button></div>`).join('')||'<div class="empty">لا يوجد عملاء</div>'}
+function clientInfo(id){let u=db.users.find(x=>x.id===id);modal(`<h3>بيانات العميل</h3><p>الاسم: ${esc(u.name)}</p><p>الرقم السري: ${esc(u.pass)}</p><p>الميلاد: ${esc(u.birth||'غير مسجل')}</p><p>الهاتف: ${esc(u.phone||'غير مسجل')}</p><button class="btn full" onclick="ban(${id})">${u.banned?'إلغاء الحظر':'حظر العميل'}</button>`)}
+function ban(id){let u=db.users.find(x=>x.id===id);u.banned=!u.banned;save();close();settings()}
+function heroFile(file){readFile(file,img=>{db.hero=img;save();home()})}
+function backup(){let a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(db)],{type:'application/json'}));a.href=url;a.download='app-backup.json';a.click();URL.revokeObjectURL(url)}
+function restore(file){if(!file)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.users||!d.anime||!d.series)throw 0;db={...db,...d};save();settings();alert('تمت الاستعادة')}catch(e){alert('ملف غير صالح')}};r.readAsText(file)}
+function clearStart(){modal(`<h3>رموز تأكيد المسح</h3>${[1,2,3,4].map(i=>`<div class="field"><label>المربع ${i}</label><input id="del${i}" type="password" inputmode="numeric"></div>`).join('')}<button class="btn full" onclick="clearCheck()">التالي</button>`)}
+function clearCheck(){if(!H_CODES.every((v,i)=>_h($('del'+(i+1)).value)===v))return alert('الرموز غير صحيحة');modal(`<h3>هل أنت متأكد أنك تريد مسح بيانات التطبيق؟</h3><div class="actions"><button class="btn danger" onclick="clearAll()">نعم</button><button class="btn secondary" onclick="close()">لا</button></div>`)}
+function clearAll(){localStorage.removeItem(KEY);localStorage.removeItem(SESSION);db={users:[],categories:[],anime:[],series:[],hero:''};role='customer';me=null;close();screen('login')}
+function initSession(){try{let s=JSON.parse(localStorage.getItem(SESSION)||'null');if(s?.role==='admin'){role='admin';me={name:'المتحكم'};return true}if(s?.role==='customer'){let u=db.users.find(x=>x.id===s.id&&!x.banned);if(u){me=u;role='customer';return true}}}catch(e){}return false}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Backspace'&&e.target.tagName!=='INPUT'&&e.target.tagName!=='TEXTAREA'){e.preventDefault();back();}});
+
+// جدار حماية بسيط: منع قائمة كليك يمين ومنع بعض اختصارات أدوات المطور
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='J'||e.key==='C'))||(e.ctrlKey&&e.key==='u')){
+    e.preventDefault();e.stopPropagation();
+  }
+});
+
+if(initSession())screen(role==='admin'?(JSON.parse(localStorage.getItem(SESSION)||'{}').verified?'home':'codes'):'home');else screen('login');
+</script></body></html>
